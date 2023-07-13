@@ -1,0 +1,32 @@
+{% extends 'main/base.html' %}
+
+{% block title %}Zarezerwuj sprzęt{% endblock %}
+
+{% block content %}
+<div>
+    <h1 style="border-bottom: 2px solid #ccc;">Rezerwuj sprzęt</h1>
+    <br>
+    <form method="post" action="/reservations_eq/" class="form-group" style="display: flex;flex-wrap: wrap;flex-wrap: nowrap;flex-direction: column;align-items: flex-start;">
+        {% csrf_token %}
+        <table>
+            <thead>
+                <tr>
+                    <th>Sprzęt</th>
+                    <th>Dostępna ilość</th>
+                    <th>Wybór</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for key, value in amounts.items %}
+                    <tr>
+                        <td class="wide" style="background-color: #046380a3;color: white;">{{ key }}</td>
+                        <td class="wide">{{ value }}</td>
+                        <td class="wide"><input type="radio", name="radio" value="{{key}}"></td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        <button type="submit", name="save", value="save", class="btn btn-success" style="align-self: stretch;">Rezerwuj</button>
+    </form>
+</div>
+{% endblock %}

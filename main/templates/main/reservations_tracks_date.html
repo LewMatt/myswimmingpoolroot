@@ -1,0 +1,25 @@
+{% extends 'main/base.html' %}
+
+{% block title %}Zarezerwuj basen{% endblock %}
+
+{% block content %}
+
+<div>
+    {% if user.is_authenticated %}
+    <form method="post" action="/reservations_tracks_date/" class="form-group">
+        <h1 style="border-bottom: 2px solid #ccc;">Wybierz datę</h1>
+    <br>
+    {% csrf_token %}
+    
+    <input type="date" id="myDate" name="myDate" class="form-control" value="{{date}}" required> 
+    
+       <br>
+
+    <button type="submit", name="save", value="save", class="btn btn-success">Pokaż dostępne tory</button>
+    </form>
+    {% else %}
+    <meta http-equiv="REFRESH" content="0;url=/login">
+    {% endif %}
+</div>
+
+{% endblock %}

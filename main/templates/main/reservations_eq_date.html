@@ -1,0 +1,27 @@
+{% extends 'main/base.html' %}
+
+{% block title %}Zarezerwuj sprzęt{% endblock %}
+
+{% block content %}
+
+<div>
+    {% if user.is_authenticated %}
+    <form method="post" action="/reservations_eq_date/" class="form-group">
+        <h1 style="border-bottom: 2px solid #ccc;">Wybierz datę i godzinę</h1>
+    <br>
+    {% csrf_token %}
+    <input type="date" id="myDate" name="myDate" class="form-control" value="{{date}}" required> 
+        <br>
+    <input type="time" id="myTime" name="myTime" min="08:00" max="20:00" required step="3600" required>
+    
+       <br>
+       <br>
+        
+    <button type="submit", name="save", value="save", class="btn btn-success">Pokaż dostępny sprzęt</button>
+    </form>
+    {% else %}
+    <meta http-equiv="REFRESH" content="0;url=/login">
+    {% endif %}
+</div>
+
+{% endblock %}

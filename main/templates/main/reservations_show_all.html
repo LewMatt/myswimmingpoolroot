@@ -1,0 +1,51 @@
+{% extends 'main/base.html' %}
+
+{% block title %}Rezerwacje{% endblock %}
+
+{% block content %}
+{% if user.is_authenticated %}
+<div>
+    <h1 style="border-bottom: 2px solid #ccc;">Rezerwacje</h1>
+       <br>
+        
+        <form method="get">
+            <label for="filter_field">Filtruj po nazwisku:</label>
+            <input type="text" name="filter_field" id="filter_field">
+            <button style="margin-bottom: 5px; margin-left: 5px;" type="submit", name="save", value="save", class="btn btn-success">Filtruj</button>
+        </form>
+        <br>
+       <table>
+        <thead>
+            <tr>
+                <th><a href="?sort_field=user.username{% if sort_field == 'user.username' and sort_order == 'asc' %}&sort_order=desc{% endif %}">Użytkownik</a></th>
+                <th><a href="?sort_field=user.last_name{% if sort_field == 'user.last_name' and sort_order == 'asc' %}&sort_order=desc{% endif %}">Nazwisko</a></th>
+                <th><a href="?sort_field=reservation_id{% if sort_field == 'reservation_id' and sort_order == 'asc' %}&sort_order=desc{% endif %}">ID</a></th>
+                <th><a href="?sort_field=date{% if sort_field == 'date' and sort_order == 'asc' %}&sort_order=desc{% endif %}">Data</a></th>
+                <th><a href="?sort_field=hour{% if sort_field == 'hour' and sort_order == 'asc' %}&sort_order=desc{% endif %}">Godzina</a></th>
+                <th><a href="?sort_field=track{% if sort_field == 'track' and sort_order == 'asc' %}&sort_order=desc{% endif %}">Tor</a></th>
+                <th><a href="?sort_field=equipment{% if sort_field == 'equipment' and sort_order == 'asc' %}&sort_order=desc{% endif %}">Sprzęt</a></th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for item in reservations %}
+                <tr>
+                    <td class="wider">{{ item.user.email }}</td>
+                    <td class="wide">{{ item.user.last_name }}</td>
+                    <td>{{ item.reservation_id }}</td>
+                    <td class="wide">{{ item.date }}</td>
+                    <td>{{ item.hour }}</td>
+                    <td>{% if item.track is none %} {% else %}{{ item.track }}{% endif %}</td>
+                    <td>{% if item.equipment is none %} {% else %}{{ item.equipment }}{% endif %}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    
+</div>
+{% else %}
+<meta http-equiv="REFRESH" content="0;url=/login">
+{% endif %}
+
+
+{% endblock %}

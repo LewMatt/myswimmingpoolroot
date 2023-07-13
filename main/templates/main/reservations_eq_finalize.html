@@ -1,0 +1,23 @@
+{% extends 'main/base.html' %}
+
+{% block title %}Zarezerwuj basen{% endblock %}
+
+{% block content %}
+
+<div>
+    <form method="post" action="/reservations_eq_finalize/" class="form-group" style="font-size: 20px;">
+    <h1 style="border-bottom: 2px solid #ccc;">Potwierdź rezerwację</h1>
+    {% csrf_token %}
+      <br>
+    <p>Data: {{reservation_date}}</p>
+    <p>Godzina: {{hour}}:00-{{hour_end}}:00</p>
+    <p>Sprzęt: {{equip_name}}</p>
+      
+    <button type="submit", name="save", value="save", class="btn btn-success">Rezerwuj</button>
+    </form>
+</div>
+
+{% endblock %}
+
+
+

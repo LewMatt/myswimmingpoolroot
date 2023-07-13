@@ -1,0 +1,134 @@
+{% extends 'main/base.html' %}
+
+{% block title %}Zarezerwuj basen{% endblock %}
+
+{% block content %}
+
+<div>
+  <h1 style="border-bottom: 2px solid #ccc;">Rezerwuj basen</h1>
+       <br>
+    <form method="post" action="/reservations_tracks/" class="form-group">
+
+    {% csrf_token %}
+    
+      <h2>{{reservation_date}}</h2>
+    <table>
+        <thead>
+          <tr>
+            <th></th>
+            <th >8:00-9:00</th>
+            <th >9:00-10:00</th>
+            <th >10:00-11:00</th>
+            <th >11:00-12:00</th>
+            <th >12:00-13:00</th>
+            <th >13:00-14:00</th>
+            <th >14:00-15:00</th>
+            <th >15:00-16:00</th>
+            <th >16:00-17:00</th>
+            <th >17:00-18:00</th>
+            <th >18:00-19:00</th>
+            <th >19:00-20:00</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th style="font-size: 24px;">Tor 1&nbsp;</th>
+            <td class="{% if t1_8 == 'Z' %}red{% else %}green{% endif %}" id="t1_8"><input type="radio", name="radio" {% if t1_8 == 'Z' %} disabled="disabled" {% endif %} value="t1_8"></td>
+            <td class="{% if t1_9 == 'Z' %}red{% else %}green{% endif %}" id="t1_9"><input type="radio", name="radio" {% if t1_9 == 'Z' %} disabled="disabled" {% endif %} value="t1_9"></td>
+            <td class="{% if t1_10 == 'Z' %}red{% else %}green{% endif %}" id="t1_10"><input type="radio", name="radio" {% if t1_10 == 'Z' %} disabled="disabled" {% endif %} value="t1_10"></td>
+            <td class="{% if t1_11 == 'Z' %}red{% else %}green{% endif %}" id="t1_11"><input type="radio", name="radio" {% if t1_11 == 'Z' %} disabled="disabled" {% endif %} value="t1_11"></td>
+            <td class="{% if t1_12 == 'Z' %}red{% else %}green{% endif %}" id="t1_12"><input type="radio", name="radio" {% if t1_12 == 'Z' %} disabled="disabled" {% endif %} value="t1_12"></td>
+            <td class="{% if t1_13 == 'Z' %}red{% else %}green{% endif %}" id="t1_13"><input type="radio", name="radio" {% if t1_13 == 'Z' %} disabled="disabled" {% endif %} value="t1_13"></td>
+            <td class="{% if t1_14 == 'Z' %}red{% else %}green{% endif %}" id="t1_14"><input type="radio", name="radio" {% if t1_14 == 'Z' %} disabled="disabled" {% endif %} value="t1_14"></td>
+            <td class="{% if t1_15 == 'Z' %}red{% else %}green{% endif %}" id="t1_15"><input type="radio", name="radio" {% if t1_15 == 'Z' %} disabled="disabled" {% endif %} value="t1_15"></td>
+            <td class="{% if t1_16 == 'Z' %}red{% else %}green{% endif %}" id="t1_16"><input type="radio", name="radio" {% if t1_16 == 'Z' %} disabled="disabled" {% endif %} value="t1_16"></td>
+            <td class="{% if t1_17 == 'Z' %}red{% else %}green{% endif %}" id="t1_17"><input type="radio", name="radio" {% if t1_17 == 'Z' %} disabled="disabled" {% endif %} value="t1_17"></td>
+            <td class="{% if t1_18 == 'Z' %}red{% else %}green{% endif %}" id="t1_18"><input type="radio", name="radio" {% if t1_18 == 'Z' %} disabled="disabled" {% endif %} value="t1_18"></td>
+            <td class="{% if t1_19 == 'Z' %}red{% else %}green{% endif %}" id="t1_19"><input type="radio", name="radio" {% if t1_19 == 'Z' %} disabled="disabled" {% endif %} value="t1_19"></td>
+          </tr>
+          <tr>
+            <th style="font-size: 24px;">Tor 2&nbsp;</th>
+            <td class="{% if t2_8 == 'Z' %}red{% else %}green{% endif %}" id="t2_8"><input type="radio", name="radio" {% if t2_8 == 'Z' %} disabled="disabled" {% endif %} value="t2_8"></td>
+            <td class="{% if t2_9 == 'Z' %}red{% else %}green{% endif %}" id="t2_9"><input type="radio", name="radio" {% if t2_9 == 'Z' %} disabled="disabled" {% endif %} value="t2_9"></td>
+            <td class="{% if t2_10 == 'Z' %}red{% else %}green{% endif %}" id="t2_10"><input type="radio", name="radio" {% if t2_10 == 'Z' %} disabled="disabled" {% endif %} value="t2_10"></td>
+            <td class="{% if t2_11 == 'Z' %}red{% else %}green{% endif %}" id="t2_11"><input type="radio", name="radio" {% if t2_11 == 'Z' %} disabled="disabled" {% endif %} value="t2_11"></td>
+            <td class="{% if t2_12 == 'Z' %}red{% else %}green{% endif %}" id="t2_12"><input type="radio", name="radio" {% if t2_12 == 'Z' %} disabled="disabled" {% endif %} value="t2_12"></td>
+            <td class="{% if t2_13 == 'Z' %}red{% else %}green{% endif %}" id="t2_13"><input type="radio", name="radio" {% if t2_13 == 'Z' %} disabled="disabled" {% endif %} value="t2_13"></td>
+            <td class="{% if t2_14 == 'Z' %}red{% else %}green{% endif %}" id="t2_14"><input type="radio", name="radio" {% if t2_14 == 'Z' %} disabled="disabled" {% endif %} value="t2_14"></td>
+            <td class="{% if t2_15 == 'Z' %}red{% else %}green{% endif %}" id="t2_15"><input type="radio", name="radio" {% if t2_15 == 'Z' %} disabled="disabled" {% endif %} value="t2_15"></td>
+            <td class="{% if t2_16 == 'Z' %}red{% else %}green{% endif %}" id="t2_16"><input type="radio", name="radio" {% if t2_16 == 'Z' %} disabled="disabled" {% endif %} value="t2_16"></td>
+            <td class="{% if t2_17 == 'Z' %}red{% else %}green{% endif %}" id="t2_17"><input type="radio", name="radio" {% if t2_17 == 'Z' %} disabled="disabled" {% endif %} value="t2_17"></td>
+            <td class="{% if t2_18 == 'Z' %}red{% else %}green{% endif %}" id="t2_18"><input type="radio", name="radio" {% if t2_18 == 'Z' %} disabled="disabled" {% endif %} value="t2_18"></td>
+            <td class="{% if t2_19 == 'Z' %}red{% else %}green{% endif %}" id="t2_19"><input type="radio", name="radio" {% if t2_19 == 'Z' %} disabled="disabled" {% endif %} value="t2_19"></td>
+          </tr>
+          <tr>
+            <th style="font-size: 24px;">Tor 3&nbsp;</th>
+            <td class="{% if t3_8 == 'Z' %}red{% else %}green{% endif %}" id="t3_8"><input type="radio", name="radio" {% if t3_8 == 'Z' %} disabled="disabled" {% endif %} value="t3_8"></td>
+            <td class="{% if t3_9 == 'Z' %}red{% else %}green{% endif %}" id="t3_9"><input type="radio", name="radio" {% if t3_9 == 'Z' %} disabled="disabled" {% endif %} value="t3_9"></td>
+            <td class="{% if t3_10 == 'Z' %}red{% else %}green{% endif %}" id="t3_10"><input type="radio", name="radio" {% if t3_10 == 'Z' %} disabled="disabled" {% endif %} value="t3_10"></td>
+            <td class="{% if t3_11 == 'Z' %}red{% else %}green{% endif %}" id="t3_11"><input type="radio", name="radio" {% if t3_11 == 'Z' %} disabled="disabled" {% endif %} value="t3_11"></td>
+            <td class="{% if t3_12 == 'Z' %}red{% else %}green{% endif %}" id="t3_12"><input type="radio", name="radio" {% if t3_12 == 'Z' %} disabled="disabled" {% endif %} value="t3_12"></td>
+            <td class="{% if t3_13 == 'Z' %}red{% else %}green{% endif %}" id="t3_13"><input type="radio", name="radio" {% if t3_13 == 'Z' %} disabled="disabled" {% endif %} value="t3_13"></td>
+            <td class="{% if t3_14 == 'Z' %}red{% else %}green{% endif %}" id="t3_14"><input type="radio", name="radio" {% if t3_14 == 'Z' %} disabled="disabled" {% endif %} value="t3_14"></td>
+            <td class="{% if t3_15 == 'Z' %}red{% else %}green{% endif %}" id="t3_15"><input type="radio", name="radio" {% if t3_15 == 'Z' %} disabled="disabled" {% endif %} value="t3_15"></td>
+            <td class="{% if t3_16 == 'Z' %}red{% else %}green{% endif %}" id="t3_16"><input type="radio", name="radio" {% if t3_16 == 'Z' %} disabled="disabled" {% endif %} value="t3_16"></td>
+            <td class="{% if t3_17 == 'Z' %}red{% else %}green{% endif %}" id="t3_17"><input type="radio", name="radio" {% if t3_17 == 'Z' %} disabled="disabled" {% endif %} value="t3_17"></td>
+            <td class="{% if t3_18 == 'Z' %}red{% else %}green{% endif %}" id="t3_18"><input type="radio", name="radio" {% if t3_18 == 'Z' %} disabled="disabled" {% endif %} value="t3_18"></td>
+            <td class="{% if t3_19 == 'Z' %}red{% else %}green{% endif %}" id="t3_19"><input type="radio", name="radio" {% if t3_19 == 'Z' %} disabled="disabled" {% endif %} value="t3_19"></td>
+          </tr>
+          <tr>
+            <th style="font-size: 24px;">Tor 4&nbsp;</th>
+            <td class="{% if t4_8 == 'Z' %}red{% else %}green{% endif %}" id="t4_8"><input type="radio", name="radio" {% if t4_8 == 'Z' %} disabled="disabled" {% endif %} value="t4_8"></td>
+            <td class="{% if t4_9 == 'Z' %}red{% else %}green{% endif %}" id="t4_9"><input type="radio", name="radio" {% if t4_9 == 'Z' %} disabled="disabled" {% endif %} value="t4_9"></td>
+            <td class="{% if t4_10 == 'Z' %}red{% else %}green{% endif %}" id="t4_10"><input type="radio", name="radio" {% if t4_10 == 'Z' %} disabled="disabled" {% endif %} value="t4_10"></td>
+            <td class="{% if t4_11 == 'Z' %}red{% else %}green{% endif %}" id="t4_11"><input type="radio", name="radio" {% if t4_11 == 'Z' %} disabled="disabled" {% endif %} value="t4_11"></td>
+            <td class="{% if t4_12 == 'Z' %}red{% else %}green{% endif %}" id="t4_12"><input type="radio", name="radio" {% if t4_12 == 'Z' %} disabled="disabled" {% endif %} value="t4_12"></td>
+            <td class="{% if t4_13 == 'Z' %}red{% else %}green{% endif %}" id="t4_13"><input type="radio", name="radio" {% if t4_13 == 'Z' %} disabled="disabled" {% endif %} value="t4_13"></td>
+            <td class="{% if t4_14 == 'Z' %}red{% else %}green{% endif %}" id="t4_14"><input type="radio", name="radio" {% if t4_14 == 'Z' %} disabled="disabled" {% endif %} value="t4_14"></td>
+            <td class="{% if t4_15 == 'Z' %}red{% else %}green{% endif %}" id="t4_15"><input type="radio", name="radio" {% if t4_15 == 'Z' %} disabled="disabled" {% endif %} value="t4_15"></td>
+            <td class="{% if t4_16 == 'Z' %}red{% else %}green{% endif %}" id="t4_16"><input type="radio", name="radio" {% if t4_16 == 'Z' %} disabled="disabled" {% endif %} value="t4_16"></td>
+            <td class="{% if t4_17 == 'Z' %}red{% else %}green{% endif %}" id="t4_17"><input type="radio", name="radio" {% if t4_17 == 'Z' %} disabled="disabled" {% endif %} value="t4_17"></td>
+            <td class="{% if t4_18 == 'Z' %}red{% else %}green{% endif %}" id="t4_18"><input type="radio", name="radio" {% if t4_18 == 'Z' %} disabled="disabled" {% endif %} value="t4_18"></td>
+            <td class="{% if t4_19 == 'Z' %}red{% else %}green{% endif %}" id="t4_19"><input type="radio", name="radio" {% if t4_19 == 'Z' %} disabled="disabled" {% endif %} value="t4_19"></td>
+          </tr>
+          <tr>
+            <th style="font-size: 24px;">Tor 5&nbsp;</th>
+            <td class="{% if t5_8 == 'Z' %}red{% else %}green{% endif %}" id="t5_8"><input type="radio", name="radio" {% if t5_8 == 'Z' %} disabled="disabled" {% endif %} value="t5_8"></td>
+            <td class="{% if t5_9 == 'Z' %}red{% else %}green{% endif %}" id="t5_9"><input type="radio", name="radio" {% if t5_9 == 'Z' %} disabled="disabled" {% endif %} value="t5_9"></td>
+            <td class="{% if t5_10 == 'Z' %}red{% else %}green{% endif %}" id="t5_10"><input type="radio", name="radio" {% if t5_10 == 'Z' %} disabled="disabled" {% endif %} value="t5_10"></td>
+            <td class="{% if t5_11 == 'Z' %}red{% else %}green{% endif %}" id="t5_11"><input type="radio", name="radio" {% if t5_11 == 'Z' %} disabled="disabled" {% endif %} value="t5_11"></td>
+            <td class="{% if t5_12 == 'Z' %}red{% else %}green{% endif %}" id="t5_12"><input type="radio", name="radio" {% if t5_12 == 'Z' %} disabled="disabled" {% endif %} value="t5_12"></td>
+            <td class="{% if t5_13 == 'Z' %}red{% else %}green{% endif %}" id="t5_13"><input type="radio", name="radio" {% if t5_13 == 'Z' %} disabled="disabled" {% endif %} value="t5_13"></td>
+            <td class="{% if t5_14 == 'Z' %}red{% else %}green{% endif %}" id="t5_14"><input type="radio", name="radio" {% if t5_14 == 'Z' %} disabled="disabled" {% endif %} value="t5_14"></td>
+            <td class="{% if t5_15 == 'Z' %}red{% else %}green{% endif %}" id="t5_15"><input type="radio", name="radio" {% if t5_15 == 'Z' %} disabled="disabled" {% endif %} value="t5_15"></td>
+            <td class="{% if t5_16 == 'Z' %}red{% else %}green{% endif %}" id="t5_16"><input type="radio", name="radio" {% if t5_16 == 'Z' %} disabled="disabled" {% endif %} value="t5_16"></td>
+            <td class="{% if t5_17 == 'Z' %}red{% else %}green{% endif %}" id="t5_17"><input type="radio", name="radio" {% if t5_17 == 'Z' %} disabled="disabled" {% endif %} value="t5_17"></td>
+            <td class="{% if t5_18 == 'Z' %}red{% else %}green{% endif %}" id="t5_18"><input type="radio", name="radio" {% if t5_18 == 'Z' %} disabled="disabled" {% endif %} value="t5_18"></td>
+            <td class="{% if t5_19 == 'Z' %}red{% else %}green{% endif %}" id="t5_19"><input type="radio", name="radio" {% if t5_19 == 'Z' %} disabled="disabled" {% endif %} value="t5_19"></td>
+          </tr>
+          <tr>
+            <th style="font-size: 24px;">Tor 6&nbsp;</th>
+            <td class="{% if t6_8 == 'Z' %}red{% else %}green{% endif %}" id="t6_8"><input type="radio", name="radio" {% if t6_8 == 'Z' %} disabled="disabled" {% endif %} value="t6_8"></td>
+            <td class="{% if t6_9 == 'Z' %}red{% else %}green{% endif %}" id="t6_9"><input type="radio", name="radio" {% if t6_9 == 'Z' %} disabled="disabled" {% endif %} value="t6_9"></td>
+            <td class="{% if t6_10 == 'Z' %}red{% else %}green{% endif %}" id="t6_10"><input type="radio", name="radio" {% if t6_10 == 'Z' %} disabled="disabled" {% endif %} value="t6_10"></td>
+            <td class="{% if t6_11 == 'Z' %}red{% else %}green{% endif %}" id="t6_11"><input type="radio", name="radio" {% if t6_11 == 'Z' %} disabled="disabled" {% endif %} value="t6_11"></td>
+            <td class="{% if t6_12 == 'Z' %}red{% else %}green{% endif %}" id="t6_12"><input type="radio", name="radio" {% if t6_12 == 'Z' %} disabled="disabled" {% endif %} value="t6_12"></td>
+            <td class="{% if t6_13 == 'Z' %}red{% else %}green{% endif %}" id="t6_13"><input type="radio", name="radio" {% if t6_13 == 'Z' %} disabled="disabled" {% endif %} value="t6_13"></td>
+            <td class="{% if t6_14 == 'Z' %}red{% else %}green{% endif %}" id="t6_14"><input type="radio", name="radio" {% if t6_14 == 'Z' %} disabled="disabled" {% endif %} value="t6_14"></td>
+            <td class="{% if t6_15 == 'Z' %}red{% else %}green{% endif %}" id="t6_15"><input type="radio", name="radio" {% if t6_15 == 'Z' %} disabled="disabled" {% endif %} value="t6_15"></td>
+            <td class="{% if t6_16 == 'Z' %}red{% else %}green{% endif %}" id="t6_16"><input type="radio", name="radio" {% if t6_16 == 'Z' %} disabled="disabled" {% endif %} value="t6_16"></td>
+            <td class="{% if t6_17 == 'Z' %}red{% else %}green{% endif %}" id="t6_17"><input type="radio", name="radio" {% if t6_17 == 'Z' %} disabled="disabled" {% endif %} value="t6_17"></td>
+            <td class="{% if t6_18 == 'Z' %}red{% else %}green{% endif %}" id="t6_18"><input type="radio", name="radio" {% if t6_18 == 'Z' %} disabled="disabled" {% endif %} value="t6_18"></td>
+            <td class="{% if t6_19 == 'Z' %}red{% else %}green{% endif %}" id="t6_19"><input type="radio", name="radio" {% if t6_19 == 'Z' %} disabled="disabled" {% endif %} value="t6_19"></td>
+          </tr>
+        </tbody>
+      </table>
+
+
+    <button type="submit", name="save", value="save", class="btn btn-success" style="width: 300px; height: 50px;font-size: 20px;">Rezerwuj</button>
+
+ </div>
+</form> 
+</div>
+
+{% endblock %}

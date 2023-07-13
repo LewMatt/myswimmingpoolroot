@@ -1,0 +1,66 @@
+{% extends 'main/base.html' %}
+
+{% block title %}Dodaj tory{% endblock %}
+
+{% block content %}
+{% if user.is_authenticated %}
+<div>
+    <form method="post" action="/reservations_tracks_add/" class="form-group">
+        <h1 style="border-bottom: 2px solid #ccc;">Dodawanie torów</h1>
+        <br>
+        {% csrf_token %}
+        <input type="date" id="date_res" name="date_res" class="form-control" required> 
+            <br>
+        <input type="time" id="time_from" name="time_from" min="08:00" max="20:00" required step="3600" required>
+        <input type="time" id="time_to" name="time_to" min="08:00" max="20:00" required step="3600" required>
+           <br>
+           <br>
+            
+           <!-- <div>
+            <p> Tor1 <input type="checkbox", id="track1" name="track1"></p>
+            <p> Tor2 <input type="checkbox", id="track2" name="track2"></p>
+            <p> Tor3 <input type="checkbox", id="track3" name="track3"></p>
+            <p> Tor4 <input type="checkbox", id="track4" name="track4"></p>
+            <p> Tor5 <input type="checkbox", id="track5" name="track5"></p>
+            <p> Tor6 <input type="checkbox", id="track6" name="track6"></p>
+           </div> -->
+           <table style="display: flex; justify-content: center;">
+           <tbody>
+
+                   <tr>
+                       <td style="background-color: #046380a3;color: white;">Tor 1</td>
+                       <td><input type="checkbox", id="track1" name="track1"></td>
+                   </tr>
+                   <tr>
+                       <td style="background-color: #046380a3;color: white;">Tor 2</td>
+                       <td><input type="checkbox", id="track2" name="track2"></td>
+                   </tr>
+                   <tr>
+                       <td style="background-color: #046380a3;color: white;">Tor 3</td>
+                       <td><input type="checkbox", id="track3" name="track3"></td>
+                   </tr>
+                   <tr>
+                       <td style="background-color: #046380a3;color: white;">Tor 4</td>
+                       <td><input type="checkbox", id="track4" name="track4"></td>
+                   </tr>
+                   <tr>
+                       <td style="background-color: #046380a3;color: white;">Tor 5</td>
+                       <td><input type="checkbox", id="track5" name="track5"></td>
+                   </tr>
+                   <tr>
+                       <td style="background-color: #046380a3;color: white;">Tor 6</td>
+                       <td><input type="checkbox", id="track6" name="track6"></td>
+                   </tr>
+           </tbody>
+       </table>
+
+
+        <button type="submit", name="save", value="save", class="btn btn-success">Dodaj tory</button>
+    </form>
+</div>
+{% else %}
+<meta http-equiv="REFRESH" content="0;url=/login">
+{% endif %}
+
+
+{% endblock %}

@@ -1,0 +1,71 @@
+{% extends 'main/base.html' %}
+
+{% block title %}Magazyn{% endblock %}
+
+{% block content %}
+{% if user.is_authenticated %}
+<div>
+    <form method="post" action="/storage/" class="form-group">
+        <h1 style="border-bottom: 2px solid #ccc;">Magazyn</h1>
+       <br>
+       {% csrf_token %}
+
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <div class="input-group-text">
+                        Płetwy
+                    </div>
+                </div>
+                <input type="text", name="item1", value="{{amounts.Płetwy}}" class="form-control">
+            </div>
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <div class="input-group-text">
+                        Deska
+                    </div>
+                </div>
+                <input type="text", name="item2", value="{{amounts.Deska}}" class="form-control">
+            </div>
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <div class="input-group-text">
+                        Ósemka
+                    </div>
+                </div>
+                <input type="text", name="item3", value="{{amounts.Ósemka}}" class="form-control">
+            </div>
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <div class="input-group-text">
+                        Pas wypornościowy
+                    </div>
+                </div>
+                <input type="text", name="item4", value="{{amounts.Pas_wypornościowy}}" class="form-control">
+            </div>
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <div class="input-group-text">
+                        Makaron
+                    </div>
+                </div>
+                <input type="text", name="item5", value="{{amounts.Makaron}}" class="form-control">
+            </div>
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <div class="input-group-text">
+                        Wiosełka
+                    </div>
+                </div>
+                <input type="text", name="item6", value="{{amounts.Wiosełka}}" class="form-control">
+            </div>
+
+        <br>
+        <button type="submit", name="save", value="save", class="btn btn-success">Aktualizuj</button>
+    </form>
+</div>
+{% else %}
+<meta http-equiv="REFRESH" content="0;url=/login">
+{% endif %}
+
+
+{% endblock %}

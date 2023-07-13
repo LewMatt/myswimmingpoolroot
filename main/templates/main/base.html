@@ -1,0 +1,110 @@
+{% load static %}
+<!doctype html>
+<html>
+    <head>
+
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+        <link href="{% static 'base.css' %}" rel="stylesheet" type="text/css">
+
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <script src="https://code.jquery.com/jquery-3.6.4.js" integrity="sha256-a9jBBRygX1Bh5lt8GZjXDzyOB+bWve9EiO7tROUtj/E=" crossorigin="anonymous"></script>
+        <title>{% block title %}My site{% endblock %}</title>
+
+    </head>
+
+    <body style="background-color: #f2f2f2;">
+
+          <!-- <div id="navbar"> 
+            <ul> 
+              <li><a href="/">Strona główna</a></li>
+              <li><a href="/reservations_tracks_date">Rezerwuj basen</a></li>
+              <li><a href="/reservations_eq_date">Rezerwuj sprzęt</a></li>
+              {% if user.is_authenticated %}
+                <li><a href="/reservations_show_all">Rezerwacje</a></li>
+                <li><a href="/logout">Wyloguj się</a></li>
+              {% else %}
+                <li><a href="/login">Zaloguj się</a></li>
+              {% endif %}
+            </ul> 
+          </div> -->
+          
+          <nav class="custom_navbar">
+            <div><a href="/"><img class="primary_icon" src="{% static 'top_banner.png' %}"></a></div>
+            <ul class="custom_navbar_list" id="navi-list" style="margin-bottom: 0;">
+              <li class="cus_nav_item"><a href="/">Strona główna</a></li>
+              
+              {% if user.is_authenticated %}
+              {% if user.groups.first.name == None %}
+              <li class="cus_nav_item"><a href="/reservations_tracks_date">Rezerwuj basen</a></li>
+              <li class="cus_nav_item"><a href="/reservations_eq_date">Rezerwuj sprzęt</a></li>
+              <li class="cus_nav_item"><a href="/reservations_show_user">Moje rezerwacje</a></li>
+              <li class="cus_nav_item"><a href="/contact">Kontakt</a></li>
+              <li class="cus_nav_item"><a href="/account">Ustawienia</a></li>
+              {% endif %}
+              {% if user.groups.first.name == 'Pracownik' %}
+              <li class="cus_nav_item"><a href="/reservations_show_all">Rezerwacje</a></li>
+              <li class="cus_nav_item"><a href="/reservations_tracks_add">Dodawanie torów</a></li>
+              <li class="cus_nav_item"><a href="/storage">Magazyn</a></li>
+              <li class="cus_nav_item"><a href="/work">Zacznij prace</a></li>
+              {% endif %}
+              {% if user.groups.first.name == 'Kierownik' %}
+              <li class="cus_nav_item"><a href="/reservations_show_all">Rezerwacje</a></li>
+              <li class="cus_nav_item"><a href="/reservations_tracks_add">Dodawanie torów</a></li>
+              <li class="cus_nav_item"><a href="/storage">Magazyn</a></li>
+              <li class="cus_nav_item"><a href="/work_show">Logowania pracowników</a></li>
+              {% endif %}
+              <li class="cus_nav_item"><a href="/logout">Wyloguj się</a></li>
+              {% else %}
+              <li class="cus_nav_item"><a href="/reservations_tracks_date">Rezerwuj basen</a></li>
+              <li class="cus_nav_item"><a href="/reservations_eq_date">Rezerwuj sprzęt</a></li>
+              <li class="cus_nav_item"><a href="/contact">Kontakt</a></li>
+              <li class="cus_nav_item"><a href="/login">Zaloguj się</a></li>
+              {% endif %}
+            </ul>
+            <div class="menu" id="toggle-button">
+              <div class="menu_line"></div>
+              <div class="menu_line"></div>
+              <div class="menu_line"></div>
+            </div>
+          </nav>
+          <script>
+            const toggleButton = document.getElementById('toggle-button');
+            const naviList = document.getElementById('navi-list');
+
+            toggleButton.addEventListener('click', () => {
+              naviList.classList.toggle('active');
+            })
+          </script>
+
+        <br>
+        <div id="content", name="content", class="main">
+                {% block content %}
+                {% endblock %}
+        </div>
+        <br>
+        <script>
+          window.addEventListener("scroll", function() {
+    var footer = document.querySelector("footer");
+    var scrollPosition = window.innerHeight + window.scrollY;
+    var documentHeight = document.body.offsetHeight;
+    if (scrollPosition < documentHeight) {
+        footer.style.display = "none";
+    } else {
+        footer.style.display = "block";
+    }
+});
+
+        </script>
+        <footer>
+          <p>&copy; 2023 LewMatt </p>
+        </footer>
+
+
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    </body>
+    
+</html>

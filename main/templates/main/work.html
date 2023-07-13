@@ -1,0 +1,29 @@
+{% extends 'main/base.html' %}
+
+{% block title %}Praca{% endblock %}
+
+{% block content %}
+
+<div>
+    {% if user.is_authenticated %}
+    <form method="post" action="/work/" class="form-group">
+    <h1 style="border-bottom: 2px solid #ccc;">Ewidencja czasu pracy</h1>
+    <br>
+    <br>
+    
+    <h2 class="{% if work_text == 'Pracujesz' %}green_txt{% else %}red_txt{% endif %}">{{ work_text }}</h2>
+    <br>
+    <br>
+    {% csrf_token %}
+    
+
+    <button type="submit", name="start", value="start", class="btn btn-success">Rozpocznij pracę</button>
+    <button type="submit", name="stop", value="stop", class="btn btn-danger">Zakończ pracę</button>
+    </form>
+    {% else %}
+    <meta http-equiv="REFRESH" content="0;url=/login">
+    {% endif %}
+</div>
+
+
+{% endblock %}

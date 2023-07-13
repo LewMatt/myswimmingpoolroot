@@ -1,0 +1,37 @@
+{% extends 'main/base.html' %}
+
+{% block title %}Praca - pokaż{% endblock %}
+
+{% block content %}
+{% if user.is_authenticated %}
+<div>
+    <h1 style="border-bottom: 2px solid #ccc;">Ewidencja czasu pracy</h1>
+       <br>
+       
+       <table>
+        <thead>
+            <tr>
+                <th><a href="?sort_field=user.last_name{% if sort_field == 'user.last_name' and sort_order == 'asc' %}&sort_order=desc{% endif %}">Nazwisko</a></th>
+                <th><a href="?sort_field=works.time{% if sort_field == 'works.time' and sort_order == 'asc' %}&sort_order=desc{% endif %}">Data</a></th>
+                <th><a href="?sort_field=works.time{% if sort_field == 'works.time' and sort_order == 'asc' %}&sort_order=desc{% endif %}">Godzina</a></th>
+                <th><a href="?sort_field=works.is_working{% if sort_field == 'works.is_working' and sort_order == 'asc' %}&sort_order=desc{% endif %}">Czy pracuje?</a></th>
+        </thead>
+        <tbody>
+            {% for item in works %}
+                <tr>
+                    <td class="wide">{{ item.user.last_name }}</td>
+                    <td class="wider">{{ item.time.date }}</td>
+                    <td class="wide">{{ item.time.time }}</td>
+                    <td class="wide">{% if item.is_working %}TAK{% else %}NIE{% endif %}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+</div>
+{% else %}
+<meta http-equiv="REFRESH" content="0;url=/login">
+{% endif %}
+
+
+{% endblock %}

@@ -1,0 +1,37 @@
+{% extends 'main/base.html' %}
+
+{% block title %}Moje rezerwacje{% endblock %}
+
+{% block content %}
+{% if user.is_authenticated %}
+<div>
+    <h1 style="border-bottom: 2px solid #ccc;">Moje rezerwacje</h1>
+       <br>
+       <table>
+        <thead>
+            <tr>
+                <th>Data</th>
+                <th>Godzina</th>
+                <th>Tor</th>
+                <th>Sprzęt</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for item in reservations %}
+                <tr>
+                    <td class="wide">{{ item.date }}</td>
+                    <td>{{ item.hour }}</td>
+                    <td>{% if item.track is none %} {% else %}{{ item.track }}{% endif %}</td>
+                    <td>{% if item.equipment is none %} {% else %}{{ item.equipment }}{% endif %}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+</div>
+{% else %}
+<meta http-equiv="REFRESH" content="0;url=/login">
+{% endif %}
+
+
+{% endblock %}

@@ -1,0 +1,81 @@
+{% extends 'main/base.html' %}
+{% load static %}
+{% block title %}Strona główna{% endblock %}
+
+{% block content %}
+
+<div id="homepage", name="homepage", class="homepage">
+    <!-- <h1>Zapraszamy!</h1> -->
+	<div id="banner" style="margin-top: 10px;">
+		<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+			<ol class="carousel-indicators">
+			  <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+			  <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+			  <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+			</ol>
+			<div class="carousel-inner">
+			  <div class="carousel-item active">
+				<img src="{% static 'zdj_home.png' %}" alt="First slide"  class="bg-body rounded" >
+			  </div>
+			  <div class="carousel-item">
+				<img src="{% static 'zdj_home2.png' %}" alt="Second slide" class="bg-body rounded">
+			  </div>
+			  <div class="carousel-item">
+				<img src="{% static 'zdj_home3.png' %}" alt="Third slide" class="bg-body rounded">
+			  </div>
+			</div>
+			<a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+			  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+			  <span class="sr-only">Previous</span>
+			</a>
+			<a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+			  <span class="carousel-control-next-icon" aria-hidden="true"></span>
+			  <span class="sr-only">Next</span>
+			</a>
+		  </div>
+	<!-- <img src="{% static 'zdj_home_2.png' %}" alt="" style="width: 100%;height: 550px;margin-top:15px;"> -->
+	</div>
+
+	<div style="margin-top: 30px; color: #046380;">
+		<h1>MY SWIMMING POOL</h1>
+	</div>
+
+	<div class="cards" >
+	<div class="row">		 
+
+	<div class="card" >
+		<img src="{% static 'grafika1.jpg' %}" class="card-img-top" alt="...">
+		<div class="card-body">
+		  <p class="card-text">Witaj na stronie naszej aplikacji do rezerwacji torów na basenie oraz sprzętu do pływania! Znajdziesz u nas szeroką gamę sprzętu takiego jak deski, ósemki, płetwy, pasy wypornościowe, makarony oraz wiosełka, które urozmaicą Twoje treningi na krytej pływalni.</p>
+		  
+		</div>
+	  </div>
+	  <div class="card" >
+		<img src="{% static 'grafika2.jpg' %}" class="card-img-top" alt="...">
+		<div class="card-body">
+		  <p class="card-text">Dzięki naszej aplikacji, rezerwacja toru i sprzętu jeszcze nigdy nie była tak łatwa i szybka. Wystarczy kilka kliknięć, a już możesz cieszyć się aktywnością fizyczną i poprawiać swoje zdrowie. Nie musisz już dzwonić i umawiać się z obsługą, teraz możesz to zrobić w każdej chwili i z każdego miejsca za pośrednictwem naszej aplikacji internetowej.</p>
+		  
+		</div>
+	  </div>
+	  </div>
+	  <div class="row">
+	  <div class="card" >
+		<img src="{% static 'grafika3.jpg' %}" class="card-img-top" alt="...">
+		<div class="card-body">
+		  <p class="card-text">Nasza aplikacja jest prosta i intuicyjna w obsłudze, dzięki czemu nie musisz się martwić o skomplikowane instrukcje czy niezrozumiałe funkcje. Po prostu wybierz datę i godzinę, a następnie wybierz tor lub sprzęt, który chcesz zarezerwować. To wszystko, co musisz zrobić!</p>
+		  
+		</div>
+	  </div>
+	  <div class="card" >
+		<img src="{% static 'grafika4.jpg' %}" class="card-img-top" alt="...">
+		<div class="card-body">
+		  <p class="card-text">Dołącz do naszej społeczności użytkowników aplikacji do rezerwacji torów na basenie oraz sprzętu i ciesz się aktywnością fizyczną bez zbędnych formalności. Rejestracja zajmie Ci tylko chwilę, a zyskasz wiele wolnego czasu na pływanie i ćwiczenia na basenie. Zarejestruj się już teraz i zacznij korzystać z naszej aplikacji!</p>
+		 
+		</div>
+	  </div>
+	  </div>
+    </div>
+       
+</div>
+
+{% endblock %}
